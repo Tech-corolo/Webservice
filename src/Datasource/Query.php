@@ -7,6 +7,7 @@ use ArrayObject;
 use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Datasource\QueryInterface;
 use Cake\Datasource\QueryTrait;
+use Cake\Datasource\ResultSetInterface;
 use Cake\Utility\Hash;
 use InvalidArgumentException;
 use IteratorAggregate;
@@ -545,7 +546,7 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
      * @psalm-suppress TraitMethodSignatureMismatch
      * @psalm-suppress ImplementedReturnTypeMismatch
      */
-    protected function _execute()
+    protected function _execute(): ResultSetInterface
     {
         $this->triggerBeforeFind();
         if ($this->__resultSet) {
